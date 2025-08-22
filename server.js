@@ -14,9 +14,6 @@ app.use(express.json());
 // **IMPORTANTE: Pega tu clave de API de Google aquí**
 const genAI = new GoogleGenerativeAI("AIzaSyC7HceaoVLsQnDNBgXHUEF8HDy1kyv8Xf8");
 
-// Servir archivos estáticos del frontend. Esta línea es crucial.
-app.use(express.static(path.join(__dirname)));
-
 // Configuración de la base de datos
 const dbConfig = {
     host: process.env.MYSQL_HOST,
@@ -121,3 +118,4 @@ app.listen(port, () => {
     console.log(`Servidor de Librería Key corriendo en http://localhost:${port}`);
 
 });
+
