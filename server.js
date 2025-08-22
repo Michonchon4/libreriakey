@@ -19,12 +19,11 @@ app.use(express.static(path.join(__dirname)));
 
 // Configuración de la base de datos
 const dbConfig = {
-    host: 'localhost',
-    user: 'root',
-    password: '12345678',
-    database: 'tienda_papeleria'
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE
 };
-
 const pool = mysql.createPool(dbConfig);
 
 // Rutas de la base de datos (se mantienen sin cambios)
@@ -120,4 +119,5 @@ app.post('/reservar', async (req, res) => {
 
 app.listen(port, () => {
     console.log(`Servidor de Librería Key corriendo en http://localhost:${port}`);
+
 });
